@@ -1,25 +1,22 @@
-import { AboutSection } from "@/components/sections/AboutSection";
-import { ContactSection } from "@/components/sections/ContactSection";
-import { FeatureStrip } from "@/components/sections/FeatureStrip";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { OtherWorksSection } from "@/components/sections/OtherWorksSection";
-import { PillarsSection } from "@/components/sections/PillarsSection";
-import { TeamSection } from "@/components/sections/TeamSection";
-import { TechnologySection } from "@/components/sections/TechnologySection";
-import { UniverseSection } from "@/components/sections/UniverseSection";
+import type { Metadata } from "next";
+import { HeroConstellation } from "@/components/hero/HeroConstellation";
+import { ContactTeaser } from "@/components/home/ContactTeaser";
+import { CreatorsConstellation } from "@/components/home/CreatorsConstellation";
+import { MuffChapters } from "@/components/home/MuffChapters";
+import { MuffIntro } from "@/components/home/MuffIntro";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" }
+};
 
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <FeatureStrip />
-      <AboutSection />
-      <UniverseSection />
-      <OtherWorksSection />
-      <PillarsSection />
-      <TechnologySection />
-      <TeamSection />
-      <ContactSection />
+      <HeroConstellation />
+      <MuffIntro />
+      <MuffChapters />
+      <CreatorsConstellation />
+      <ContactTeaser />
     </main>
   );
 }

@@ -1,0 +1,90 @@
+.grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 48px;
+  grid-auto-flow: dense;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  aspect-ratio: 16 / 9;
+  background: var(--deep-blue);
+}
+
+.cutout .frame {
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(1px 1px at 20% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 60%, #e0f2fe 50%, transparent 51%),
+    radial-gradient(60% 60% at 50% 55%, rgba(124, 58, 237, 0.25), transparent 70%),
+    linear-gradient(160deg, #120a2a, #050816);
+  background-size: 90px 90px, 130px 130px, 100% 100%, 100% 100%;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.cutout .img {
+  object-fit: contain;
+  padding: 6%;
+}
+
+.item:hover .img {
+  transform: scale(1.04);
+}
+
+.cap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+}
+
+.cap b {
+  font: 650 1rem / 1.2 var(--font-display);
+}
+
+.cap span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scene {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .scene {
+    grid-column: span 2;
+  }
+
+  .scene .frame,
+  .cutout .frame {
+    aspect-ratio: auto;
+    height: clamp(260px, 26vw, 380px);
+  }
+}

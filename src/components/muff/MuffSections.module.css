@@ -1,0 +1,182 @@
+.split {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+.pillars {
+  display: grid;
+  gap: 14px;
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(8, 11, 31, 0.6);
+}
+
+.pillar p {
+  margin-top: 4px;
+  color: var(--body-ink);
+  font-size: 0.98rem;
+}
+
+.pillarImg {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.pillarImg img {
+  object-fit: cover;
+}
+
+/* história */
+.historyGrid {
+  display: grid;
+  gap: 40px;
+}
+
+.historyAside {
+  display: grid;
+  gap: 32px;
+  align-content: start;
+}
+
+.historyArt img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.timeline ol {
+  position: relative;
+  display: grid;
+  gap: 36px;
+  margin: 0;
+  padding: 0 0 0 36px;
+  list-style: none;
+}
+
+.timeline ol::before {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(var(--gold), var(--magic), transparent);
+}
+
+.timeline li {
+  position: relative;
+  display: grid;
+  gap: 8px;
+}
+
+.timeline li p {
+  max-width: 56ch;
+  color: var(--body-ink);
+}
+
+.dot {
+  position: absolute;
+  left: -36px;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--background);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+/* versão de desenvolvimento */
+.snapshot {
+  background: radial-gradient(60% 55% at 30% 50%, rgba(251, 191, 36, 0.1), transparent 70%);
+}
+
+.snapGrid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+.snapLogo {
+  width: min(180px, 40vw);
+}
+
+.snapLogo img {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.snapBody {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+}
+
+.facts {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--soft);
+}
+
+.facts li::before {
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  content: "";
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+.disclaimer {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 64px;
+  }
+
+  .historyGrid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 64px;
+  }
+
+  .historyAside {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+
+  .snapGrid {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  .snapLogo {
+    width: 240px;
+  }
+}
