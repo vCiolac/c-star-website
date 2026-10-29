@@ -20,3 +20,13 @@ pnpm-debug.log*
 
 # misc
 .DS_Store
+
+# typescript
+*.tsbuildinfo
+
+# env
+.env*.local
+.env
+
+# qa
+.qa
