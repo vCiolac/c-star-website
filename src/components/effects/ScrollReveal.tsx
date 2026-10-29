@@ -1,82 +1,53 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { loadGsap, prefersReducedMotion } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 type ScrollRevealProps = {
   children: React.ReactNode;
   className?: string;
+  /** Seletor dos itens internos animados em sequência (padrão: o próprio bloco). */
   itemSelector?: string;
   y?: number;
-  delay?: number;
+  as?: "div" | "section" | "article";
 };
 
-export function ScrollReveal({
-  children,
-  className,
-  itemSelector,
-  y = 28,
-  delay = 0
-}: ScrollRevealProps) {
+/** Revela conteúdo ao entrar na viewport. Conteúdo fica visível sem JS e com movimento reduzido. */
+export function ScrollReveal({ children, className, itemSelector, y = 28, as: Tag = "div" }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let cleanup: (() => void) | undefined;
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return;
+    let revert: (() => void) | undefined;
     let cancelled = false;
 
-    async function animate() {
-      if (!ref.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-
-      const gsapModule = await import("gsap");
-      const scrollTriggerModule = await import("gsap/ScrollTrigger");
-      const { gsap } = gsapModule;
-      const { ScrollTrigger } = scrollTriggerModule;
-
-      if (cancelled || !ref.current) {
-        return;
-      }
-
-      gsap.registerPlugin(ScrollTrigger);
+    loadGsap().then(({ gsap }) => {
+      if (cancelled) return;
       const ctx = gsap.context(() => {
-        const targets = itemSelector
-          ? gsap.utils.toArray<HTMLElement>(itemSelector)
-          : [ref.current as HTMLDivElement];
-
-        gsap.fromTo(
-          targets,
-          { autoAlpha: 0, y },
-          {
-            autoAlpha: 1,
-            y: 0,
-            delay,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: itemSelector ? 0.1 : 0,
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top 82%",
-              once: true
-            }
-          }
-        );
-      }, ref);
-
-      cleanup = () => ctx.revert();
-    }
-
-    animate();
+        const targets = itemSelector ? gsap.utils.toArray<HTMLElement>(itemSelector) : [el];
+        gsap.from(targets, {
+          autoAlpha: 0,
+          y,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: itemSelector ? 0.1 : 0,
+          scrollTrigger: { trigger: el, start: "top 85%", once: true }
+        });
+      }, el);
+      revert = () => ctx.revert();
+    });
 
     return () => {
       cancelled = true;
-      cleanup?.();
+      revert?.();
     };
-  }, [delay, itemSelector, y]);
+  }, [itemSelector, y]);
 
   return (
-    <div ref={ref} className={cn("scroll-reveal", className)}>
+    <Tag ref={ref} className={cn(className)}>
       {children}
-    </div>
+    </Tag>
   );
 }

@@ -1,28 +1,60 @@
 import Link from "next/link";
-import { navItems, footerContent } from "@/lib/siteContent";
+import { StarMark } from "@/components/ui/StarMark";
+import { footerContent, navItems, siteLinks, studio } from "@/lib/siteContent";
+import styles from "./Footer.module.css";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 px-5 py-10 sm:px-8">
-      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
-        <div>
-          <p className="logo-mark text-xl">
-            C-ST<span aria-hidden>★</span>R
+    <footer className={styles.footer}>
+      <div className={`wrap ${styles.grid}`}>
+        <div className={styles.brandCol}>
+          <p className={styles.brand}>
+            <StarMark className={styles.star} />
+            {studio.name}
           </p>
-          <p className="mt-3 text-sm text-slate-400">{footerContent.tagline}</p>
+          <p className={styles.tagline}>{studio.tagline}</p>
         </div>
 
-        <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Links do rodapé">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link">
-              {item.label === "MUFF" ? "MUFF Origem" : item.label}
-            </Link>
-          ))}
+        <nav aria-label="Páginas">
+          <p className="label">Páginas</p>
+          <ul className={styles.list}>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
+
+        <div>
+          <p className="label">MUFF</p>
+          <ul className={styles.list}>
+            <li>
+              <a href={siteLinks.muff} target="_blank" rel="noopener noreferrer">
+                Site oficial <span aria-hidden>↗</span>
+              </a>
+            </li>
+            <li>
+              <a href={siteLinks.play} target="_blank" rel="noopener noreferrer">
+                Versão de desenvolvimento <span aria-hidden>↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="label">Contato</p>
+          <ul className={styles.list}>
+            <li>
+              <a href={siteLinks.contactMailto}>{siteLinks.contactEmail}</a>
+            </li>
+            <li>
+              <Link href="/contato">Formulário de contato</Link>
+            </li>
+          </ul>
+        </div>
       </div>
-      <p className="mx-auto mt-10 max-w-7xl text-center text-xs uppercase tracking-[0.22em] text-slate-500">
-        {footerContent.copyright}
-      </p>
+      <p className={`wrap ${styles.copy}`}>{footerContent.copyright}</p>
     </footer>
   );
 }
