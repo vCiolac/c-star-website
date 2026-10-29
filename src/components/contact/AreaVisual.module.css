@@ -1,0 +1,159 @@
+.root {
+  position: relative;
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    radial-gradient(60% 60% at 50% 50%, color-mix(in srgb, var(--c) 18%, transparent), transparent 70%),
+    linear-gradient(160deg, rgba(18, 10, 42, 0.7), rgba(8, 11, 31, 0.92));
+  perspective: 700px;
+}
+
+.field {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1px 1px at 14% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 16%, #e0f2fe 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 86% 74%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 82%, #fde68a 50%, transparent 51%),
+    radial-gradient(1px 1px at 52% 48%, #fff 50%, transparent 51%);
+  background-size: 120px 120px;
+  opacity: 0.7;
+}
+
+/* órbita */
+.orbitScene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+.planet {
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff8e1 0%, var(--c) 34%, #7c2d12 78%, #1c0a02 100%);
+  box-shadow:
+    0 0 40px color-mix(in srgb, var(--c) 55%, transparent),
+    inset -12px -10px 30px rgba(0, 0, 0, 0.55);
+}
+
+.ring {
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.ringA {
+  transform: rotateX(70deg) rotateY(-12deg);
+  animation: orbit-a 14s linear infinite;
+}
+
+.ringB {
+  width: 90%;
+  border-color: rgba(56, 189, 248, 0.25);
+  transform: rotateX(76deg) rotateY(18deg);
+  animation: orbit-b 22s linear infinite;
+}
+
+.ring i {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px var(--c);
+}
+
+@keyframes orbit-a {
+  to {
+    transform: rotateX(70deg) rotateY(-12deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbit-b {
+  to {
+    transform: rotateX(76deg) rotateY(18deg) rotateZ(-360deg);
+  }
+}
+
+/* sinal */
+.signal {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.signal span {
+  position: absolute;
+  width: 30%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--c) 70%, transparent);
+  border-radius: 50%;
+  animation: pulse 3.6s var(--ease) infinite;
+}
+
+.signal span:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.signal span:nth-child(3) {
+  animation-delay: 2.4s;
+}
+
+.signalStar {
+  position: relative;
+  width: 22%;
+  filter: drop-shadow(0 0 14px var(--c));
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* aglomerado */
+.cluster {
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+}
+
+.twinkle {
+  animation: twinkle 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal span:nth-child(1) {
+    transform: scale(1.6);
+    opacity: 0.5;
+  }
+}
