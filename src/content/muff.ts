@@ -165,7 +165,7 @@ export const techSteps: TechStep[] = [
     index: "01",
     tag: "Legado",
     title: "Um jogo para desktop",
-    text: "O MUFF começou como jogo para PC: cliente em Godot e servidor em .NET com MySQL. Foi ali que a Casa e o modo de construção tomaram forma.",
+    text: "O MUFF começou como jogo para PC: cliente em Godot e servidor em .NET com MySQL. O cliente legado já tinha um modo de construção de interiores.",
     visual: "legacy",
     image: {
       image: buildMode,
@@ -177,7 +177,7 @@ export const techSteps: TechStep[] = [
     index: "02",
     tag: "Decisão",
     title: "Reconstruir para a Web",
-    text: "Decidimos refazer o jogo para rodar no navegador, sem instalar nada, levando junto o universo, as casas, os campeões e o mundo.",
+    text: "Decidimos refazer o jogo para rodar no navegador, sem instalar nada, mantendo o universo, os personagens e a pixel art.",
     visual: "stack"
   },
   {

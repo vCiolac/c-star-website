@@ -46,19 +46,19 @@ export function MuffOverview() {
 const history = [
   {
     title: "Uma ideia que virou universo",
-    text: "O MUFF nasceu da imaginação de Juan César: um mundo com história própria, reinos, eras e personagens. A partir dessa ideia, a C-STAR se formou em torno de três criadores com papéis complementares."
+    text: "O universo MUFF foi idealizado por Juan César. Em torno dele, a C-STAR reúne três criadores com papéis complementares: criação e narrativa, tecnologia, mundo e som."
   },
   {
     title: "O primeiro jogo, no desktop",
-    text: "A primeira versão foi construída para PC, com cliente em Godot e servidor em .NET. Nela tomaram forma a Casa, o modo de construção e a pixel art que define o jogo até hoje."
+    text: "A primeira versão foi um jogo para PC, com cliente em Godot e servidor em .NET com banco MySQL. O cliente legado já tinha um modo de construção de interiores em pixel art."
   },
   {
     title: "A virada para o navegador",
-    text: "Para que qualquer pessoa pudesse entrar com um link, o jogo foi reconstruído para a Web, com um servidor autoritativo novo e a apresentação em pixel art rodando no navegador."
+    text: "O jogo foi reconstruído para a Web: um servidor Node autoritativo com PostgreSQL e a apresentação em pixel art rodando no navegador com Phaser."
   },
   {
     title: "Um mundo que continua crescendo",
-    text: "Hoje o MUFF evolui em uma versão de desenvolvimento aberta, onde Casa, Cidade e Caçadas já convivem e novos sistemas entram aos poucos."
+    text: "Hoje o MUFF evolui em uma versão de desenvolvimento aberta, onde a Casa, a Cidade e as Caçadas já podem ser experimentadas."
   }
 ];
 
