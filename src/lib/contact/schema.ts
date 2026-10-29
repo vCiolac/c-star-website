@@ -20,7 +20,7 @@ const stripControl = (v: string) => v.replace(CONTROL, "");
 
 export const contactSchema = z.object({
   name: z
-    .string({ required_error: "Informe seu nome.", invalid_type_error: "Informe seu nome." })
+    .string({ error: "Informe seu nome." })
     .refine(noLineBreaks, "O nome não pode ter quebras de linha.")
     .transform((v) => stripControl(v).trim())
     .pipe(
@@ -30,13 +30,13 @@ export const contactSchema = z.object({
         .max(CONTACT_LIMITS.nameMax, `Use no máximo ${CONTACT_LIMITS.nameMax} caracteres.`)
     ),
   email: z
-    .string({ required_error: "Informe seu e-mail.", invalid_type_error: "Informe seu e-mail." })
+    .string({ error: "Informe seu e-mail." })
     .refine(noLineBreaks, "Informe um e-mail válido.")
     .transform((v) => v.trim())
-    .pipe(z.string().max(CONTACT_LIMITS.emailMax, "E-mail longo demais.").email("Informe um e-mail válido.")),
-  subject: z.enum(CONTACT_SUBJECTS, { errorMap: () => ({ message: "Escolha um assunto." }) }),
+    .pipe(z.string().max(CONTACT_LIMITS.emailMax, "E-mail longo demais.").pipe(z.email("Informe um e-mail válido."))),
+  subject: z.enum(CONTACT_SUBJECTS, { error: "Escolha um assunto." }),
   message: z
-    .string({ required_error: "Escreva sua mensagem.", invalid_type_error: "Escreva sua mensagem." })
+    .string({ error: "Escreva sua mensagem." })
     .transform((v) => stripControl(v).trim())
     .pipe(
       z
