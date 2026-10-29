@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image";
-import alma from "@/assets/muff/alma.webp";
 import buildMode from "@/assets/muff/build_mode.png";
 import casa from "@/assets/muff/casa.jpg";
 import arzagaia from "@/assets/muff/champ/arzagaia-full.webp";
@@ -142,13 +141,6 @@ export const gallery: GalleryItem[] = [
     alt: "Nave colossal com propulsores azuis",
     title: "Stuway III",
     caption: "O que existe além do céu.",
-    kind: "cutout"
-  },
-  {
-    image: alma,
-    alt: "Jovem de capuz cambaleando com a mão na cabeça",
-    title: "Alma",
-    caption: "Uma personagem da história.",
     kind: "cutout"
   }
 ];

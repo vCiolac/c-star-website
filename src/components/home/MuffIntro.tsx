@@ -18,13 +18,13 @@ export function MuffIntro() {
       <div className={`wrap ${styles.grid}`}>
         <ScrollReveal className={styles.copy} itemSelector="[data-r]">
           <span className="label accent-gold" data-r>
-            Nosso projeto principal
+            MUFF Origem · nosso projeto principal
           </span>
           <h2 id="muff-title" className="t-1" data-r>
-            MUFF Origem
+            Um mundo inteiro, no navegador.
           </h2>
           <p className="lead" data-r>
-            Um universo de fantasia que vive no navegador. Em MUFF, cada jogador tem a sua Casa, encontra outras pessoas
+            MUFF Origem é um universo de fantasia que vive no navegador. Nele, cada jogador tem a sua Casa, encontra outras pessoas
             no mundo e parte em aventuras ao lado de campeões com história, voz e estilo próprios.
           </p>
           <ul className={styles.pillars} data-r>

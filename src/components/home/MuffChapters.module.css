@@ -131,7 +131,7 @@
   display: block;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(2, 6, 23, 0.92) 0%, rgba(2, 6, 23, 0.62) 34%, rgba(2, 6, 23, 0) 62%),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.78) 36%, rgba(2, 6, 23, 0.25) 56%, rgba(2, 6, 23, 0) 70%),
     linear-gradient(0deg, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0) 40%);
 }
 
@@ -150,6 +150,7 @@
 
 .root[data-mode="pinned"] .panelInner {
   max-width: min(520px, 40vw);
+  text-shadow: 0 2px 18px rgba(2, 6, 23, 0.85);
 }
 
 .root[data-mode="pinned"] .indicators {

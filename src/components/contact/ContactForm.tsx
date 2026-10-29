@@ -304,7 +304,7 @@ export function ContactForm() {
           aria-atomic="true"
         >
           {statusMsg}
-          {status === "error" && (availability === "unavailable" || /e-mail oficial/.test(statusMsg)) ? (
+          {status === "error" && (statusMsg === SERVER_MESSAGES.envio_indisponivel || /e-mail oficial/.test(statusMsg)) ? (
             <>
               {" "}
               <a href={siteLinks.contactMailto}>{siteLinks.contactEmail}</a>

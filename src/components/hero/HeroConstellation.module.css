@@ -336,6 +336,22 @@
   }
 }
 
+/* Telas muito pequenas: rótulo só com o nome para não cobrir as outras estrelas. */
+@media (max-width: 419px) and (max-height: 720px) {
+  .label {
+    padding: 6px 10px 6px 22px;
+  }
+
+  .label::before {
+    top: 50%;
+    margin-top: -3px;
+  }
+
+  .label span {
+    display: none;
+  }
+}
+
 @media (max-width: 380px) {
   .copy {
     gap: 12px;
