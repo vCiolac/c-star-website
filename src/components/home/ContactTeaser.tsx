@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { AreaVisual } from "@/components/contact/AreaVisual";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
-import { CopyEmail } from "@/components/ui/CopyEmail";
 import { contactAreas } from "@/content/contact";
 import styles from "./ContactTeaser.module.css";
 
@@ -35,9 +34,8 @@ export function ContactTeaser() {
 
         <div className={styles.bottom}>
           <Link className="btn btn-gold" href="/contato#formulario">
-            Abrir o formulário de contato
+            Entre em contato
           </Link>
-          <CopyEmail />
         </div>
       </div>
     </section>

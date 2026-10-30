@@ -3,7 +3,6 @@ import { AreaVisual } from "@/components/contact/AreaVisual";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { SubjectButton } from "@/components/contact/SubjectButton";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
-import { CopyEmail } from "@/components/ui/CopyEmail";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { contactAreas } from "@/content/contact";
 import styles from "./contato.module.css";
@@ -24,7 +23,9 @@ export default function ContatoPage() {
         title="Vamos conversar sobre mundos."
         lead="Somos um estúdio pequeno e lemos cada mensagem. Escolha a área que combina com o seu assunto ou vá direto ao formulário."
       >
-        <CopyEmail />
+        <a className="btn btn-gold" href="#formulario">
+          Enviar mensagem
+        </a>
       </PageIntro>
 
       <div className={styles.areas}>
@@ -70,10 +71,8 @@ export default function ContatoPage() {
               Escreva para o estúdio.
             </h2>
             <p className="prose-muted">
-              A mensagem chega direto no e-mail da equipe. Se preferir, escreva para o endereço oficial: a resposta vem do
-              mesmo lugar.
+              A mensagem chega direto no e-mail da equipe, e a resposta vem para o endereço que você informar.
             </p>
-            <CopyEmail />
           </div>
           <div className={styles.formCard}>
             <ContactForm />

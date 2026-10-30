@@ -46,10 +46,7 @@ export function Footer() {
           <p className="label">Contato</p>
           <ul className={styles.list}>
             <li>
-              <a href={siteLinks.contactMailto}>{siteLinks.contactEmail}</a>
-            </li>
-            <li>
-              <Link href="/contato">Formulário de contato</Link>
+              <Link href="/contato#formulario">Enviar mensagem</Link>
             </li>
           </ul>
         </div>
